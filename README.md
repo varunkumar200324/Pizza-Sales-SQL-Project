@@ -38,7 +38,7 @@ group by pizzas.size order by count(order_details.order_details_id) desc;
 ```
 5. List the top 5 most ordered pizza types along with their quantities.
 ```sql
-select pizza_type.name,sum(order_details.quantity)
+select pizza_type.name,sum(order_details.quantity) as quantity
 from pizza_type join pizza
 on pizza_type.pizza_type_id = pizza.pizza_type_id
 join order_details
