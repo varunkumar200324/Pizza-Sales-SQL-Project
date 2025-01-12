@@ -57,12 +57,12 @@ group by pizza_types.category order by quantity desc;
 7. Determine the distribution of orders by hour of the day.
 ```sql
 SELECT
-    HOUR(order_time) AS hour,
-    COUNT(order_id) AS order_count
+    HOUR(orders.time) AS Hour,
+    COUNT(orders.order_id) AS order_count
 FROM
     orders
 GROUP BY
-    HOUR(order_time);
+    Hour;
 ```
 8. Group the orders by date and calculate the average number of pizzas ordered per day.
 ```sql
