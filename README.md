@@ -67,10 +67,10 @@ GROUP BY
 8. Group the orders by date and calculate the average number of pizzas ordered per day.
 ```sql
 select round(avg(quantity), 0) from order_quantity
-(select orders.order_date, sum(order_details.quantity) as quantity
+(select orders.date, sum(order_details.quantity) as quantity
 from orders join order_details
 on orders.order_id = order_details.order_id
-group by orders.order_date) as order_quantity
+group by orders.date) as order_quantity
 ```
 9. Determine the top 3 most ordered pizza types based on revenue.
 ```sql
