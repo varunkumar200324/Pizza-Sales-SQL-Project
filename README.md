@@ -102,16 +102,16 @@ order by revenue desc;
 ```
 11. Analyze the cumulative revenue generated over time.
 ```sql
-select order_date,
-       sum(revenue) over (order by order_date) as cum_revenue
+select date,
+       sum(revenue) over (order by date) as cum_revenue
 from
-    (select orders.order_date,
+    (select orders.date,
             sum(order_details.quantity * pizzas.price) as revenue
      from order_details join pizzas
           on order_details.pizza_id = pizzas.pizza_id
      join orders
           on orders.order_id = order_details.order_id
-     group by orders.order_date) as sales;
+     group by orders.date) as sales;
 ```
 12. Determine the top 3 most ordered pizza types based on revenue for each pizza category.
 ```sql
